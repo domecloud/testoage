@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - simple form with bulma</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <main class="container content box">
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <div class="field has-addons has-addons-centered">
+          <p class="control">
+		<div id="file-js-example" class="file has-name is-right">
+			
+			<label class="file-label">
+				<span class="file-cta">
+					<input class="file-input" type="file" name="file" />
+					<span class="file-icon">
+						<i class="fas fa-upload"></i>
+					</span>
+					<span class="file-label">
+						Choose a file…
+					</span>
+				</span>
+				<span class="file-name">
+					No file uploaded
+				</span>
+			</label>
+		</div>
+          </p>
+		  
+          <p class="control">
+            <a class="button is-primary">
+              <input type="submit" class="button is-primary" />
+            </a>
+          </p>
+        </div>
+
+
+        <script>
+          const fileInput = document.querySelector(
+            "#file-js-example input[type=file]"
+          );
+          fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+              const fileName = document.querySelector(
+                "#file-js-example .file-name"
+              );
+              fileName.textContent = fileInput.files[0].name;
+            }
+          };
+        </script>
+      </form>
+    </main>
+    <!-- partial -->
+  </body>
+</html>
